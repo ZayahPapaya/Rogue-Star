@@ -422,6 +422,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 		burn	-= (picked.burn_dam - burn_was)
 
 		parts -= picked
+
 	updatehealth()
 	BITSET(hud_updateflag, HEALTH_HUD)
 	if(update)	UpdateDamageIcon()

@@ -27,6 +27,7 @@
 	var/appendage_color = "#e03997" //Default pink. Used for the 'long_vore' trait.
 	var/appendage_alt_setting = FALSE	// Dictates if 'long_vore' user pulls prey to them or not. 1 = user thrown towards target.
 	var/trash_catching = FALSE 			//RSEdit: Toggle for trash throw vore || Ports trash eater throw vore from CHOMPStation PR#5987
+	var/obj/item/paint_brush/organic/linked_brush 	//RSAddition: Allows for natural painters. This is the paintbrush.
 	//Commented out by maintainer request
 	//var/passtable_reset					//RS Port Chomp PR 7822 || CHOMPEDIT For crawling
 	//var/passtable_crawl_checked = FALSE //RS Port Chomp PR 7822 || CHOMPEDIT For Crawling
@@ -43,6 +44,7 @@
 		'sound/effects/mob_effects/xenochimera/regen_3.ogg',
 		'sound/effects/mob_effects/xenochimera/regen_5.ogg'
 	)
+	var/liquidbelly_visuals = TRUE //Regent bellies || RS Add || Chomp Port
 
 	var/player_login_key_log			//RS ADD: keeps track of a ckey if we join with one to help determine if we're a PC
 
@@ -256,6 +258,7 @@
 	P.throw_vore = src.throw_vore
 	P.food_vore = src.food_vore
 	P.stumble_vore = src.stumble_vore
+	P.glowy_belly = src.glowy_belly
 	P.eating_privacy_global = src.eating_privacy_global
 
 	P.nutrition_message_visible = src.nutrition_message_visible
@@ -309,6 +312,7 @@
 	slip_vore = P.slip_vore
 	throw_vore = P.throw_vore
 	stumble_vore = P.stumble_vore
+	glowy_belly = P.glowy_belly
 	food_vore = P.food_vore
 	eating_privacy_global = P.eating_privacy_global
 
@@ -577,7 +581,7 @@
 //
 // Master vore proc that actually does vore procedures
 //
-/mob/living/proc/perform_the_nom(mob/living/user, mob/living/prey, mob/living/pred, obj/belly/belly, delay)
+/mob/living/proc/perform_the_nom(mob/living/user, mob/living/prey, mob/living/pred, obj/belly/belly, delay, var/ranged)
 	//Sanity
 	if(!user || !prey || !pred || !istype(belly) || !(belly in pred.vore_organs))
 		log_debug("[user] attempted to feed [prey] to [pred], via [belly ? lowertext(belly.name) : "*null*"] but it went wrong.")
@@ -593,7 +597,7 @@
 	var/user_to_pred = get_dist(get_turf(user),get_turf(pred))
 	var/user_to_prey = get_dist(get_turf(user),get_turf(prey))
 
-	if(user_to_pred > 1 || user_to_prey > 1)
+	if((user_to_pred > 1 || user_to_prey > 1) && !ranged)
 		return FALSE
 
 	if(!prey.devourable)
@@ -1252,6 +1256,7 @@
 	if(owner.client)
 		create_mob_button(parent)
 	owner.verbs |= /mob/proc/insidePanel
+	owner.verbs |= /mob/living/proc/vore_check_reagents // Liquid bellies || RS Add || Chomp Port
 	owner.vorePanel = new(owner)
 
 /datum/component/vore_panel/UnregisterFromParent()
@@ -1302,3 +1307,10 @@
 		return FALSE
 	return TRUE
 //RS ADD END
+
+/mob/living/proc/liquidbelly_visuals() // Reagent bellies || RS Add || Chomp Port
+	set name = "Toggle Liquidbelly Visuals"
+	set category = "Preferences"
+	set desc = "Toggle liquidbelly fullscreen visual effect."
+	liquidbelly_visuals = !liquidbelly_visuals
+	to_chat(src, "<span class='warning'>Liquidbelly overlays [liquidbelly_visuals ? "enabled" : "disabled"].</span>")

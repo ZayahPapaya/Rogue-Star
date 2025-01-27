@@ -21,7 +21,7 @@
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws/shadekin, /datum/unarmed_attack/bite/sharp/shadekin)
 	rarity_value = 15	//INTERDIMENSIONAL FLUFFERS
 
-	inherent_verbs = list(/mob/proc/adjust_hive_range)
+	inherent_verbs = list(/mob/proc/adjust_hive_range, /mob/living/carbon/human/proc/adjust_flicker) //RS Edit
 
 	siemens_coefficient = 1
 	darksight = 10
@@ -74,7 +74,7 @@
 	poison_type = null
 	water_breather = TRUE	//They don't quite breathe
 
-	vision_flags = SEE_SELF|SEE_MOBS
+//	vision_flags = SEE_SELF|SEE_MOBS	//RS REMOVE
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_UNDERWEAR
 	digi_allowed = TRUE
 
@@ -311,16 +311,20 @@
 	.=..()
 
 	var/eyecolor_type = get_shadekin_eyecolor(H)
+	//RS Edit Start Adjustments for better feeling shadekin.
+
+	//Former(in the dark): BESK: 50 in 200 ||RESK: 50 in 1000 ||PESK: 50 in 100 ||YESK: 50 in 33.3|| GESK: 50 in 50 ||OESK: 50 in 400
+	//Current(in the dark): BESK: 50 in 133 ||RESK: 50 in 200 ||PESK: 50 in 100 ||YESK: 50 in 33.3|| GESK: 50 in 50 ||OESK: 50 in 133
 
 	switch(eyecolor_type)
 		if(BLUE_EYES)
 			total_health = 100
-			energy_light = 0.5
-			energy_dark = 0.5
+			energy_light = 0.75
+			energy_dark = 0.75
 		if(RED_EYES)
 			total_health = 200
-			energy_light = -1
-			energy_dark = 0.1
+			energy_light = -0.5
+			energy_dark = 0.5
 		if(PURPLE_EYES)
 			total_health = 150
 			energy_light = -0.5
@@ -335,8 +339,9 @@
 			energy_dark = 2
 		if(ORANGE_EYES)
 			total_health = 175
-			energy_light = -0.5
-			energy_dark = 0.25
+			energy_light = -0.25
+			energy_dark = 0.75
+	//RS Edit End
 
 	H.maxHealth = total_health
 

@@ -23,7 +23,7 @@ var/list/preferences_datums = list()
 	var/UI_style_alpha = 255
 	var/tooltipstyle = "Midnight"		//Style for popup tooltips
 	var/client_fps = 40
-	var/ambience_freq = 0				// How often we're playing repeating ambience to a client.
+	//var/ambience_freq = 0				// How often we're playing repeating ambience to a client. //RS Edit. See PR #67. Handled in area/enter()
 	var/ambience_chance = 35			// What's the % chance we'll play ambience (in conjunction with the above frequency)
 
 	var/tgui_fancy = TRUE
@@ -83,6 +83,7 @@ var/list/preferences_datums = list()
 	var/b_synth							//Same as above
 	var/synth_markings = 1				//Enable/disable markings on synth parts. //VOREStation Edit - 1 by default
 	var/digitigrade = 0
+	var/screamsound = 0					//RS ADD
 
 		//Some faction information.
 	var/home_system = "Unset"           //Current home or residence.
@@ -173,7 +174,6 @@ var/list/preferences_datums = list()
 
 	///If they are currently in the process of swapping slots, don't let them open 999 windows for it and get confused
 	var/selecting_slots = FALSE
-
 
 /datum/preferences/New(client/C)
 	player_setup = new(src)

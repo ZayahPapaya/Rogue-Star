@@ -4846,8 +4846,37 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/atmos/monitoring)
 "ko" = (
-/obj/item/weapon/storage/secure/briefcase/ml3m_pack_med,
 /obj/structure/table/reinforced,
+/obj/item/weapon/storage/firstaid/hypokit/brute{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/obj/item/weapon/storage/firstaid/hypokit/brute{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/firstaid/hypokit/burn{
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/obj/item/weapon/storage/firstaid/hypokit/burn{
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/firstaid/hypokit/toxin{
+	pixel_x = -6
+	},
+/obj/item/weapon/storage/firstaid/hypokit/toxin{
+	pixel_x = -6;
+	pixel_y = -5
+	},
+/obj/item/weapon/storage/firstaid/hypokit/oxy{
+	pixel_x = 7
+	},
+/obj/item/weapon/storage/firstaid/hypokit/oxy{
+	pixel_x = 7;
+	pixel_y = -5
+	},
 /obj/machinery/alarm/angled{
 	dir = 4
 	},
@@ -5196,7 +5225,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/steel_ridged,
-/area/engineering/engine_eva)
+/area/storage/tech)
 "kU" = (
 /obj/structure/disposalpipe/segment,
 /mob/living/simple_mob/vore/alienanimals/teppi/baby,
@@ -6573,8 +6602,8 @@
 /turf/simulated/floor/tiled,
 /area/stellardelight/deck2/aftstarboard)
 "nO" = (
-/turf/simulated/wall/bay/r_wall/orange,
-/area/engineering/engine_eva)
+/turf/simulated/wall/bay/steel,
+/area/stellardelight/deck2/barbackroom)
 "nP" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -8853,6 +8882,11 @@
 /obj/item/weapon/tool/screwdriver,
 /obj/structure/table/reinforced,
 /obj/machinery/light,
+/obj/item/weapon/storage/box/nifsofts_medical{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/obj/item/weapon/storage/box/nifsofts_medical,
 /turf/simulated/floor/tiled/eris/white/bluecorner,
 /area/medical/cmostore)
 "ta" = (
@@ -9235,27 +9269,10 @@
 /turf/simulated/floor/tiled,
 /area/stellardelight/deck2/port)
 "tV" = (
-/obj/item/weapon/storage/box/nifsofts_medical{
-	pixel_x = 7;
-	pixel_y = 7
-	},
-/obj/item/weapon/storage/box/nifsofts_medical,
-/obj/structure/table/reinforced,
-/obj/item/device/radio{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/device/radio{
-	pixel_x = 4;
-	pixel_y = -4
-	},
-/obj/item/device/radio{
-	pixel_x = 7;
-	pixel_y = 8
-	},
 /obj/machinery/light_switch{
 	pixel_y = 24
 	},
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/eris/white/bluecorner,
 /area/medical/cmostore)
 "tW" = (
@@ -21160,12 +21177,22 @@
 /turf/simulated/floor/airless,
 /area/stellardelight/deck2/exterior)
 "Uq" = (
-/obj/machinery/vending/medical,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/firstaid/mkIhypokit{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/firstaid/mkIhypokit{
+	pixel_x = -3
+	},
+/obj/item/weapon/storage/secure/briefcase/ml3m_pack_med{
+	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/eris/white/bluecorner,
 /area/medical/cmostore)
@@ -21532,7 +21559,7 @@
 	stripe_color = "#89bd66"
 	},
 /turf/simulated/floor/tiled/steel_ridged,
-/area/crew_quarters/bar)
+/area/stellardelight/deck2/barbackroom)
 "Vi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -23372,6 +23399,18 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/item/device/radio{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/device/radio{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/device/radio{
+	pixel_x = 4;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/eris/white/bluecorner,
 /area/medical/cmostore)
@@ -34922,13 +34961,13 @@ ON
 ON
 Jn
 Vu
-ta
-ta
-ta
-ta
-ta
-ta
-ta
+YY
+YY
+YY
+YY
+YY
+YY
+YY
 ta
 LY
 LY
@@ -35137,14 +35176,14 @@ nP
 Jh
 Jh
 Jh
-HQ
-Sx
-Sx
-Sx
+Yi
+nO
+nO
+nO
 Vh
-Sx
-Sx
-Sx
+nO
+nO
+nO
 FA
 Zr
 sj
@@ -35286,7 +35325,7 @@ LN
 KG
 Rn
 FC
-fl
+nO
 fl
 HW
 fl
@@ -35428,7 +35467,7 @@ Og
 FB
 UC
 JT
-fl
+nO
 Ae
 Rm
 WZ
@@ -35570,7 +35609,7 @@ yM
 Ly
 NY
 YM
-fl
+nO
 CV
 Wm
 tW
@@ -35712,7 +35751,7 @@ Kx
 Ez
 gP
 pR
-fl
+nO
 FR
 Wm
 HV
@@ -35854,7 +35893,7 @@ Yi
 Yi
 cQ
 Yi
-aN
+Yi
 xI
 Wm
 HV
@@ -36353,12 +36392,12 @@ cL
 Qz
 tm
 az
-nO
-nO
+ow
+ow
 kT
-nO
-nO
-nq
+ow
+ow
+rT
 VJ
 VJ
 Wb
@@ -36495,7 +36534,7 @@ hX
 OF
 OF
 lV
-OF
+ow
 il
 Qt
 on
@@ -36637,7 +36676,7 @@ sw
 OF
 sm
 bz
-OF
+ow
 Ql
 zq
 NC
@@ -36779,7 +36818,7 @@ Lp
 OF
 cN
 Yq
-OF
+ow
 Ij
 sl
 Jg
@@ -36921,7 +36960,7 @@ fN
 OF
 OF
 Sw
-OF
+ow
 qX
 eK
 li
@@ -37063,7 +37102,7 @@ Vf
 Xo
 pu
 UE
-OF
+ow
 ow
 ow
 ow
@@ -37205,7 +37244,7 @@ UF
 Vx
 Vf
 Gu
-OF
+ow
 MW
 Cr
 ow
@@ -37347,7 +37386,7 @@ Bs
 EP
 Vf
 mC
-OF
+ow
 gh
 kH
 Mz
@@ -37489,7 +37528,7 @@ Vf
 gW
 Vf
 Gu
-OF
+ow
 XB
 Tx
 ow
@@ -37631,7 +37670,7 @@ Vf
 EP
 Vf
 Ix
-ni
+rT
 Ra
 Ra
 rT

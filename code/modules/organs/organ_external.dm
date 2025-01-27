@@ -821,9 +821,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if (open && !clamped && (H && H.should_have_organ(O_HEART)))
 		status |= ORGAN_BLEEDING
 
+
+	//RS EDIT Better Bone Fractures. HP must be <= .5x their total max_health AND the limb must be >min_broken_damage
 	//Bone fractures
 	if(config.bones_can_break && brute_dam > min_broken_damage * config.organ_health_multiplier && !(robotic >= ORGAN_ROBOT))
-		src.fracture()
+		if(istype(owner,/mob/living/carbon/human))
+			var/mob/living/carbon/human/our_owner = owner
+			if(our_owner.health <= (our_owner.maxHealth*0.5)) //If our owner's health is <= .5 their max health
+				src.fracture()
 
 	update_health()
 
@@ -1147,6 +1152,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			force_icon = R.icon
 			brute_mod *= R.robo_brute_mod
 			burn_mod *= R.robo_burn_mod
+			digi_prosthetic = R.can_be_digitigrade //RS EDIT (CS PR #5565)
 			if(R.lifelike)
 				robotic = ORGAN_LIFELIKE
 				name = "[initial(name)]"

@@ -858,6 +858,23 @@
 	extra_overlay = "valetail_mark"
 	extra_overlay_w = "valetail_mark_w"
 
+/datum/sprite_accessory/tail/tyranid_tail //RS Add || Chomp Port 4722
+	name = "Tyranid"
+	icon = 'icons/mob/vore/tails_ch.dmi'
+	icon_state = "tyranid"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+
+/datum/sprite_accessory/tail/leopard  //RS Add || Chomp Port 5715
+	name = "Leopard tail, dual-color (vwag)"
+	icon = 'icons/mob/vore/tails_ch.dmi'
+	icon_state = "leopard"
+	ani_state = "leopard_w"
+	extra_overlay = "leopard_spots"
+	extra_overlay_w = "leopard_spots_w"
+	do_colouration = 1
+	color_blend_mode = ICON_MULTIPLY
+
 // Dino Tails
 
 /datum/sprite_accessory/tail/clubtail
@@ -1518,5 +1535,32 @@
 	icon_state = "chonksqrl"
 	extra_overlay = "chonksqrl-m1"
 	extra_overlay2 = "chonksqrl-m2"
+
+/datum/sprite_accessory/tail/longtail/teppi
+	name = "Teppi (Vwag)"
+	icon = 'icons/rogue-star/tails_64x32_rs.dmi'
+	icon_state = "teppi"
+	extra_overlay = "teppi-1"
+	extra_overlay2 = "teppi-2"
+	ani_state = "teppi-f"
+	extra_overlay_w = "teppi-f-1"
+	extra_overlay2_w = "teppi-2"
+
+/datum/sprite_accessory/tail/longtail/teppi_r
+	name = "Teppi (Vwag)(Reversed markings)"
+	icon = 'icons/rogue-star/tails_64x32_rs.dmi'
+	icon_state = "teppi"
+	extra_overlay = "teppi-2"
+	extra_overlay2 = "teppi-1"
+	ani_state = "teppi-f"
+	extra_overlay_w = "teppi-f-2"
+	extra_overlay2_w = "teppi-1"
+
+/datum/sprite_accessory/tail/longtail/bigfluffytail
+	name = "Very Fluffy Tail"
+	icon = 'icons/rogue-star/tails_64x32_rs.dmi'
+	icon_state = "bigfluffytail"
+	extra_overlay = "bigfluffytail-1"
+	extra_overlay2 = "bigfluffytail-2"
 
 //RS ADD END
